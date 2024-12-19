@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hugs For You BB! ✨❤️</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(0deg, #b5e1d2, #ffe4d9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            color: #333;
+            overflow: hidden;
+        }
+
+        .container {
+            position: relative;
+            text-align: center;
+        }
+
+        button {
+            padding: 30px 40px;
+            background: #ff8b94;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            background: #ff6b7a;
+        }
+
+        .message {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #333;
+            display: none;
+            position: relative;
+            margin: 0 auto;
+            padding: 20px;
+            max-width: 600px;
+        }
+
+        .brain-damage {
+            font-size: 1.2rem;
+            font-weight: lighter;
+        }
+
+        .fade-in {
+            animation: fadeIn 3s forwards;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .emoji {
+            position: absolute;
+            font-size: 24px;
+            animation: fall 3s infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button id="hugButton">Click to Get Hug</button>
+        <div class="message">
+            <img id="chillImage" src="zxz.jpg" alt="Chill guy" style="margin: 10px; height: 200px; opacity: 0;">
+            <img id="hugGif" src="strong-cute-love-hug-ukptk2pjqsd2af7g.webp" alt="Hug gif" style="margin: 10px; height: 200px; opacity: 0;">
+            <p class="message-text" style="margin: 0px 0;">Sending my very handsome, very smart, very hot and sexy, and very chill boyfriend 100 worth of very tight and warm hugs!</p>
+            <p class="brain-damage" style="margin: 0px;">because his class is hurting his brain xD</p>
+            <p style="margin: 0px;">Cheer up bb! I know you can do it! 🙌😘</p>
+            <p style="margin: 0px;">You deserve a hug!❤️</p>
+        </div>
+    </div>
+
+    <audio id="bgMusic" loop>
+        <source src="chillguy.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        document.getElementById('hugButton').addEventListener('click', () => {
+            const message = document.querySelector('.message');
+            const button = document.getElementById('hugButton');
+            const chillImage = document.getElementById('chillImage');
+            const hugGif = document.getElementById('hugGif');
+            const bgMusic = document.getElementById('bgMusic');
+
+            bgMusic.play();
+
+            button.style.display = 'none';
+
+            message.style.display = 'block';
+
+            chillImage.classList.add('fade-in');
+            hugGif.classList.add('fade-in');
+
+            setTimeout(() => {
+                chillImage.style.opacity = 1;
+                hugGif.style.opacity = 1;
+            }, 0);
+
+            const emojis = ['❤️', '🤗', '💕'];
+            for (let i = 0; i < 100; i++) {
+                const emoji = document.createElement('div');
+                emoji.className = 'emoji';
+                emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+                emoji.style.left = Math.random() * 100 + 'vw';
+                emoji.style.top = Math.random() * -100 + 'vh';
+                emoji.style.animationDelay = Math.random() * 3 + 's';
+                emoji.style.fontSize = Math.random() * 20 + 20 + 'px';
+
+                document.body.appendChild(emoji);
+
+                emoji.addEventListener('animationend', () => emoji.remove());
+            }
+        });
+    </script>
+</body>
+</html>
